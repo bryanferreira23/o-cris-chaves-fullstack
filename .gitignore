@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Vite build
+dist/
+
+# Logs e cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Sistema
+.DS_Store
+.env

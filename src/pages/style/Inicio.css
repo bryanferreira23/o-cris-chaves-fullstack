@@ -1,0 +1,48 @@
+.inicio-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #0d202c;
+  color: white;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.btn-cliente,
+.btn-admin {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: 0.3s;
+  min-width: 180px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.btn-cliente {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-admin {
+  background-color: #007BFF;
+  color: white;
+}
+
+.btn-cliente:hover,
+.btn-admin:hover {
+  opacity: 0.8;
+}

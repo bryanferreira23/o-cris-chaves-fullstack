@@ -1,0 +1,198 @@
+.home {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+.services-local-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.services,
+.local {
+  flex: 1 1 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #0d202c;
+  color: white;
+  text-align: center;
+}
+
+.services h2,
+.local h2 {
+  font-size: 50px;
+}
+
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.service-card {
+  background-color: rgba(0, 0, 0, 0.548);
+  color: white;
+  border-radius: 10px;
+  padding: 25px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.548);
+  transition: transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  font-size: 22px;
+  color: #fff;
+}
+
+.service-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.map-container {
+  margin-top: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.photo-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.photo-carousel img {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  scroll-snap-align: start;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Contato */
+.contact {
+  padding: 60px 20px;
+  background-color: rgba(255, 255, 0, 0.562);
+  color: #fff;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: #0d202c;
+}
+
+.contact p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #0d202c;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.btn.call {
+  background-color: #0d6efd;
+  color: white;
+  border: 2px solid #fff;
+}
+
+.btn.call:hover {
+  background-color: #0d6dfda4;
+  color: white;
+}
+
+.btn.whatsapp {
+  background-color: #1bda61;
+  color: #fff;
+  border: none;
+}
+
+.btn.whatsapp:hover {
+  background-color: #1ebe5b;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow.left {
+  left: 30px;
+}
+
+.arrow.right {
+  right: 30px;
+}

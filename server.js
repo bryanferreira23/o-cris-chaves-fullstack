@@ -49,6 +49,14 @@ let db;
 
     console.log(`📦 Banco de dados pronto em ${DB_PATH}`);
 
+    // ✅ Criação automática do admin se não existir
+    const existingAdmin = await db.get("SELECT * FROM admins WHERE username = 'admin'");
+    if (!existingAdmin) {
+      const hashedPassword = await bcrypt.hash("123456", 10);
+      await db.run("INSERT INTO admins (username, password) VALUES (?, ?)", ["admin", hashedPassword]);
+      console.log("✅ Admin padrão criado (usuario: admin | senha: 123456)");
+    }
+
     // Rota de login com JWT
     app.post("/api/login", async (req, res) => {
       const { username, password } = req.body;

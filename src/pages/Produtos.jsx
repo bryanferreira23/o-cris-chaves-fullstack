@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import "./style/Produtos.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Produtos = () => {
   const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch(`${API_URL}/api/products`)
       .then((res) => res.json())
-      .then((data) => setProdutos(data))
+      .then(setProdutos)
       .catch((err) => console.error("Erro ao carregar produtos:", err));
   }, []);
 
@@ -20,19 +22,9 @@ const Produtos = () => {
           const linkWhatsApp = `https://api.whatsapp.com/send?phone=5551998063633&text=${encodeURIComponent(mensagem)}`;
 
           return (
-            <a
-              href={linkWhatsApp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-produto"
-              key={index}
-            >
+            <a href={linkWhatsApp} target="_blank" rel="noopener noreferrer" className="link-produto" key={index}>
               <div className="card-produto">
-                <img
-                  src={produto.imagem}
-                  alt={produto.nome}
-                  className="imagem-produto"
-                />
+                <img src={produto.imagem} alt={produto.nome} className="imagem-produto" />
                 <div className="info-produto">
                   <h2>{produto.nome}</h2>
                   <p>{produto.descricao}</p>

@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style/Login.css";
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 const Login = () => {
   const [form, setForm] = useState({ username: "", password: "" });
   const [erro, setErro] = useState("");
@@ -16,7 +14,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`${API_URL}/api/login`, {
+    fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),

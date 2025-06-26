@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "./style/AdminProdutos.css";
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 const AdminProdutos = () => {
   const [produtos, setProdutos] = useState([]);
   const [form, setForm] = useState({
@@ -19,7 +17,7 @@ const AdminProdutos = () => {
   }, []);
 
   const buscarProdutos = () => {
-    fetch(`${API_URL}/api/produtos-admin`, {
+    fetch("/api/produtos-admin", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
@@ -38,8 +36,8 @@ const AdminProdutos = () => {
     e.preventDefault();
     const metodo = editandoId ? "PUT" : "POST";
     const url = editandoId
-      ? `${API_URL}/api/produtos-admin/${editandoId}`
-      : `${API_URL}/api/produtos-admin`;
+      ? `/api/produtos-admin/${editandoId}`
+      : "/api/produtos-admin";
 
     fetch(url, {
       method: metodo,
@@ -75,12 +73,14 @@ const AdminProdutos = () => {
 
   const handleExcluir = (id) => {
     if (confirm("Tem certeza que deseja excluir este produto?")) {
-      fetch(`${API_URL}/api/produtos-admin/${id}`, {
+      fetch(`/api/produtos-admin/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => {
-          if (!res.ok) throw new Error("Erro ao excluir produto");
+          if (!res.ok) {
+            throw new Error(`Erro ao excluir produto (status ${res.status})`);
+          }
           buscarProdutos();
         })
         .catch((err) => console.error("Erro ao excluir produto:", err));
@@ -101,21 +101,50 @@ const AdminProdutos = () => {
   return (
     <div className="admin-container">
       <h2>Administração de Produtos</h2>
+
       <form onSubmit={handleSubmit} className="admin-form">
-        <input name="nome" placeholder="Nome do produto" value={form.nome} onChange={handleChange} required />
-        <input name="descricao" placeholder="Descrição" value={form.descricao} onChange={handleChange} required />
-        <select name="imagem" value={form.imagem} onChange={handleChange} required>
+        <input
+          name="nome"
+          placeholder="Nome do produto"
+          value={form.nome}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="descricao"
+          placeholder="Descrição"
+          value={form.descricao}
+          onChange={handleChange}
+          required
+        />
+        <select
+          name="imagem"
+          value={form.imagem}
+          onChange={handleChange}
+          required
+        >
           {imagensDisponiveis.map((img, idx) => (
             <option key={idx} value={img}>
               {img.split("/").pop().replace(".png", "")}
             </option>
           ))}
         </select>
-        <input name="preco" type="number" placeholder="Preço" value={form.preco} onChange={handleChange} step="0.01" required />
-        <button type="submit">{editandoId ? "Atualizar Produto" : "Adicionar Produto"}</button>
+        <input
+          name="preco"
+          type="number"
+          placeholder="Preço"
+          value={form.preco}
+          onChange={handleChange}
+          step="0.01"
+          required
+        />
+        <button type="submit">
+          {editandoId ? "Atualizar Produto" : "Adicionar Produto"}
+        </button>
       </form>
 
       <h3>Lista de Produtos</h3>
+
       {produtos.map((p) => (
         <div key={p.id} className="produto-item">
           <img src={p.imagem} alt={p.nome} />
@@ -125,8 +154,12 @@ const AdminProdutos = () => {
             <p>Preço: R$ {parseFloat(p.preco).toFixed(2)}</p>
           </div>
           <div className="produto-actions">
-            <button onClick={() => handleEditar(p)} className="editar">Editar</button>
-            <button onClick={() => handleExcluir(p.id)} className="excluir">Excluir</button>
+            <button onClick={() => handleEditar(p)} className="editar">
+              Editar
+            </button>
+            <button onClick={() => handleExcluir(p.id)} className="excluir">
+              Excluir
+            </button>
           </div>
         </div>
       ))}

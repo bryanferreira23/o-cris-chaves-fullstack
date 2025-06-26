@@ -20,7 +20,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const SECRET = process.env.JWT_SECRET || "chave_secreta_bem_segura";
 
-// 👉 Caminho do banco ajustado para Render Disks ou "./db.sqlite" local
+// Caminho do banco ajustado para Render Disks ou "./db.sqlite" local
 const DB_PATH = process.env.DB_PATH || "./db.sqlite";
 
 app.use(cors());
@@ -47,7 +47,7 @@ let db;
       preco REAL
     )`);
 
-    console.log(`📦 Banco de dados pronto em ${DB_PATH}`);
+    console.log(`Banco de dados pronto em ${DB_PATH}`);
 
     // Rota de login com JWT
     app.post("/api/login", async (req, res) => {
@@ -74,7 +74,7 @@ let db;
       next();
     });
 
-    // 🔓 Rota pública para listar produtos
+    // Rota pública para listar produtos
     app.get("/api/products", async (req, res) => {
       try {
         const produtos = await db.all("SELECT * FROM products");
@@ -84,7 +84,7 @@ let db;
       }
     });
 
-    // 🔒 Rotas protegidas de CRUD
+    // Rotas protegidas de CRUD
     app.use("/api/produtos-admin", autenticarToken, productRoutes);
 
     // SPA fallback
@@ -93,9 +93,9 @@ let db;
     });
 
     // Inicia o servidor só depois que o banco está pronto
-    app.listen(PORT, () => console.log(`✅ Servidor rodando em http://localhost:${PORT}`));
+    app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));
   } catch (err) {
-    console.error("❌ Erro ao inicializar o banco:", err);
+    console.error("Erro ao inicializar o banco:", err);
     process.exit(1);
   }
 })();

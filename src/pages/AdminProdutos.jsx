@@ -6,7 +6,7 @@ const AdminProdutos = () => {
   const [form, setForm] = useState({
     nome: "",
     descricao: "",
-    imagem: "/images/produtos/chaves.png",
+    imagem: "/images/produtos/chave-yale.png",
     preco: "0.00",
   });
   const [editandoId, setEditandoId] = useState(null);
@@ -53,7 +53,7 @@ const AdminProdutos = () => {
         setForm({
           nome: "",
           descricao: "",
-          imagem: "/images/produtos/chaves.png",
+          imagem: "/images/produtos/chave-yale.png",
           preco: "0.00",
         });
         setEditandoId(null);
@@ -88,14 +88,14 @@ const AdminProdutos = () => {
   };
 
   const imagensDisponiveis = [
-    "/images/produtos/chaves.png",
-    "/images/produtos/controles.png",
-    "/images/produtos/tags.png",
-    "/images/produtos/mecanicas.png",
-    "/images/produtos/digitais.png",
-    "/images/produtos/segredo.png",
-    "/images/produtos/aberturas.png",
-    "/images/produtos/manutencao.png",
+    "/images/produtos/chave-yale.png",
+    "/images/produtos/controle-comum.png",
+    "/images/produtos/tag.png",
+    "/images/produtos/fechadura-tetra-stam-1004.png",
+    "/images/produtos/fechadura-digital-fr101.png",
+    "/images/produtos/fechadura-colonial-stam-cx55.png",
+    "/images/produtos/instalacoes-manutencoes.png",
+    "/images/produtos/chave-tetra.png",
   ];
 
   return (

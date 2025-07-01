@@ -1,6 +1,7 @@
 .sobre{
     font-family: Arial, Helvetica, sans-serif;
     max-width: 100%;
+    min-height: 100vh;
     background-color: #0d202c;
     margin: 0 auto;
     padding: 10px;
@@ -13,7 +14,7 @@
 }
 
 .sobre p{
-    font-size: 25px;
+    font-size: 20px;
     color: rgb(238, 238, 238);
 }
 

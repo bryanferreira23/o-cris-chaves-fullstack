@@ -94,8 +94,9 @@ const AdminProdutos = () => {
     "/images/produtos/fechadura-tetra-stam-1004.png",
     "/images/produtos/fechadura-digital-fr101.png",
     "/images/produtos/fechadura-colonial-stam-cx55.png",
-    "/images/produtos/instalacoes-manutencoes.png",
+    "/images/produtos/aberturas-manutencoes-instalacoes.png",
     "/images/produtos/chave-tetra.png",
+    "/images/produtos/cadeado-papaiz-30mm.png",
   ];
 
   return (

@@ -1,5 +1,4 @@
 import { Routes, Route, Link, Navigate } from "react-router-dom";
-import Inicio from "./pages/Inicio";
 import AdminProdutos from "./pages/AdminProdutos";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -18,18 +17,17 @@ function App() {
     <div>
       <header>
         <h1>O Cris Chaves</h1>
+        <Link to="/login" className="login-button">Admin</Link>
       </header>
       <nav>
-        <Link to="/">Tela Inicial</Link>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/produtos">Produtos</Link>
         <Link to="/sobre">Sobre</Link>
         <Link to="/contato">Contato</Link>
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/produtos" element={<Produtos />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/contato" element={<Contato />} />

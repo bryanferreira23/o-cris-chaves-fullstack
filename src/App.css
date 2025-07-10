@@ -6,17 +6,36 @@ body {
     color: #333;
   }
   
-  header {
-    background-color: #333;
-    color: yellow;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 2rem;
-  }
+ header {
+  background-color: #333;
+  color: yellow;
+  padding: 1rem;
+  text-align: center;
+  position: relative; /* necessário para posicionar o botão dentro do header */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.login-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 9px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: white;
+  background-color:  #333;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #eee;
+}
   
   nav {
     background-color: #333;
